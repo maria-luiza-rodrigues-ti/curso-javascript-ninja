@@ -39,7 +39,7 @@ booleano que representa "verdadeiro";
 */
 ?
 pessoa.andar = function(distancia) {
-    pessoa.caminhouQuantosMetros = pessoa.caminhouQuantosMetros + distancia;
+    pessoa.caminhouQuantosMetros = pessoa.caminhouQuantosMetros + distancia; // pode ser pessoa.caminhouQuantosMetros += distancia;
     pessoa.andando = true;
 }
 /*
