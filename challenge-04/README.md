@@ -15,6 +15,9 @@ var isTruthy = function(teste) {
     }
 };
 
+/* var is Truthy = function (param) { return param ? true : false; }
+    var is Truthy = return !!param; */
+
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
 isTruthy(undefined);
 isTruthy(null);
@@ -37,6 +40,10 @@ isTruthy(Infinity);
 isTruthy(-Infinity);
 isTruthy(true);
 isTruthy([]);
+
+// isTruthy( function() {});
+// isTruthy (20 * 30);
+// isTruthy (10 * 10);
 
 /*
 Declare uma variável chamada `carro`, atribuindo à ela um objeto com as
@@ -105,25 +112,23 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
-carro.adicionarPessoas = function(novasPessoas) {
-    var substantivo = "pessoas";
-    carro.quantidadePessoas += novasPessoas;
-    if ( carro.quantidadePessoas === 5 ) {
-        return "O carro já está lotado!";
-    } else if ( carro.quantidadePessoas >= 6 ) {
-        carro.quantidadePessoas -= novasPessoas;
-        var restantePessoas = 5 - carro.quantidadePessoas;
-        return "Só cabem mais " + restantePessoas + " " + substantivo + "!";
-    } else if ( carro.quantidadePessoas === 4 ) {
-        substantivo = "pessoa";
-        var restantePessoas = 5 - carro.quantidadePessoas;
-        return "Só cabem mais "  + restantePessoas + " " + substantivo + "!";
-    } else if ( carro.quantidadePessoas === 1 ) {
-        substantivo = "pessoa";
-        return "Já temos " + carro.quantidadePessoas + " " + substantivo + " no carro!"
+carro.adicionarPessoas = function (numeroPessoas) {
+    var totalPessoas = carro.quantidadePessoas + numeroPessoas;
+
+    if ( carro.quantidadePessoas === carro.assentos ) {
+        return 'O carro já está lotado!';
     }
-    return "Já temos " + carro.quantidadePessoas + " " + substantivo + " no carro!"
-}
+
+    if ( totalPessoas > carro.assentos ) {
+        var quantasPessoasCabem = carro.assentos - carro.quantidadePessoas;
+        var pluralOuSingular = quantasPessoasCabem === 1 ? ' pessoa' : ' pessoas';
+        
+        return "Só cabem mais " + quantasPessoasCabem + pluralOuSingular + "!";
+    }
+
+    carro.quantidadePessoas += numeroPessoas;
+    return "Já temos " + carro.quantidadePessoas + " pessoas no carro!";
+};
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
@@ -148,7 +153,7 @@ carro.mudaCor("verde musgo");
 carro.cor; // 'verde musgo'
 
 // Qual a marca e modelo do carro?
-carro.obterMarca(); // 'Renault'
+carro.obterMarcaModelo(); // 'Esse carro é um Renault Kwid'
 
 // Adicione 2 pessoas no carro.
 carro.adicionarPessoas(2); // 'Já temos 2 pessoas no carro!'
