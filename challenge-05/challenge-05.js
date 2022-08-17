@@ -64,15 +64,15 @@ function Book( bookName ) {
         },
         
         "Torto Arado" : {
-            quantidadePaginas: Number,
-            autor: String,
-            editora: String
+            quantidadePaginas: 264,
+            autor: 'Itamar Vieira Junior',
+            editora: 'Todavia'
         },
 
         "Olhos D'Agua" : {
-            quantidadePaginas: Number ,
-            autor: String,
-            editora: String,
+            quantidadePaginas: 116 ,
+            autor: 'Conceição Evaristo',
+            editora: 'Pallas',
         }
     }
     return !bookName ? allBooks : allBooks[ bookName ];
@@ -97,11 +97,11 @@ a frase:
 "O autor do livro [NOME_DO_LIVRO] é [AUTOR]."
 */
 
-console.log("O autor do livro " + bookName + " é " + book( bookName).autor + ".");
+console.log("O autor do livro " + bookName + " é " + Book( bookName ).autor + ".");
 
 /*
 Ainda com a função acima, imprima o nome da editora de um livro qualquer, usando
 a frase:
 "O livro [NOME_DO_LIVRO] foi publicado pela editora [NOME_DA_EDITORA]."
 */
-console.log("O livro " + bookName + " foi publicado pela editora " + book( bookName).editora + ".");
+console.log("O livro " + bookName + " foi publicado pela editora " + Book( bookName).editora + ".");
