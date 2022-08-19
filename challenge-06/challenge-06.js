@@ -34,7 +34,7 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
 function showTeamPosition( position ){
     var index = position - 1;;
 
-    if ( position <= 5 ) {
+    if ( 1 < position <= 5 ) {
         return ('O time que está em ' + position + 'º lugar é o ' + teams[index] + '.');
     } else {
         return "Não temos a informação do time que está nessa posição.";
@@ -79,32 +79,28 @@ function convertToHex( color ) {
     switch ( color ) {
         case 'Indigo':
             hex = '#4B0082';
-            console.log(
-                'O hexadecimal para a cor ' + color + ' é ' + hex + '.');
             break;
+
         case 'Magenta':
             hex = '#FF00FF';
-            console.log(
-                'O hexadecimal para a cor ' + color + ' é ' + hex + '.');
             break;
+
         case 'Coral':
             hex = '#FF7F50';
-            console.log(
-                'O hexadecimal para a cor ' + color + ' é ' + hex + '.');
             break;
+
         case 'Olive':
             hex = '#808000';            
-            console.log(
-                'O hexadecimal para a cor ' + color + ' é ' + hex + '.');
             break;
+
         case 'Aquamarine':
             hex = '#7FFFD4';             
-            console.log(
-                'O hexadecimal para a cor ' + color + ' é ' + hex + '.');
             break;
+
         default:
-            console.log('Não temos o equivalente hexadecimal para '+ color +'.')
+            return ('Não temos o equivalente hexadecimal para '+ color +'.');
     }
+    return 'O hexadecimal para a cor ' + color + ' é ' + hex + '.'
 }
 
 /*
